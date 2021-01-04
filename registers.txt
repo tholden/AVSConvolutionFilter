@@ -1,0 +1,11 @@
+register	var
+eax			start of row address (approx same as lasty)
+ebx			temp
+ecx			pointer to m64farray
+edx			address to output to (approx same as to k)
+esi			line number (same as j)
+edi			position in line in bytes (same as 4*i)
+mm0			positive running total (approx same as outR/outG/outB)
+mm1			negative running total (approx same as outR/outG/outB)
+mm2			temp
+mm3			result of first pass through if on two pass mode

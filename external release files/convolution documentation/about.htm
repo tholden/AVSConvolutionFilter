@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>*convolution - about convolution filters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.cfp {  font-family: "Courier New", Courier, mono; font-size: medium; font-weight: normal}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" height="100%" border="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td class="cfp">
+<p><b><font face="Courier New, Courier, mono" size="7">*about convolution filters</font></b>
+</p>
+<p class="cfp">blurs, edge detections, sharpens, waves, you name it... they're all convolution filters</p>
+<p class="cfp">&nbsp;</p>
+<p class="cfp">for every pixel on the screen, the filter does the following calculations:</p>
+<p class="cfp">it looks at each pixels surrounding it (in our case 49 in a 7x7 grid) and multiplies their value by the corresponding number in the grid of values (called the kernel) on the config pannel. these values should be  integers (positive or negative). it then takes the sum of all these products, adds the bias (again an integer) and divides by the scale (also an integer). the auto-scale button will set the scale to the sum of all the values in the kernel plus the bias. this is useful for setting the scales of blurs.</p>
+<p class="cfp">as an example, consider a kernel zero abart from the following central squares:
+<table border="0" align="center">
+<tr>
+<td class="cfp">0</td>
+<td class="cfp">1</td>
+<td class="cfp">0</td>
+</tr>
+<tr>
+<td class="cfp">1</td>
+<td class="cfp">4</td>
+<td class="cfp">1</td>
+</tr>
+<tr>
+<td class="cfp">0</td>
+<td class="cfp">1</td>
+<td class="cfp">0</td>
+</tr>
+</table>
+with bias 0 and scale 8. this will do (4*current pixel +
+pixel directly above
++ pixel directly below
++ pixel to the right + pixel to the left) / 8. as it happens this is a very fast blur. to really see its effects you should turn clear every frame off.
+<p class="cfp">&nbsp;</p>
+<p class="cfp">&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td class="cfp" valign="bottom">&lt; <a href="index.htm"><font color="#000000">previous</font></a> :: <a href="index.htm"><font color="#000000">contents</font></a> :: <a href="filters.htm"><font color="#000000">next</font></a> &gt;
+</td>
+</tr>
+</table>
+</body>
+</html>

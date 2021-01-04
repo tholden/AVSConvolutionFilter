@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>*convolution - optimising your filter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.cfp {  font-family: "Courier New", Courier, mono; font-size: medium; font-weight: normal}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" height="100%" border="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td class="cfp">
+<p><b><font face="Courier New, Courier, mono" size="7">*optimising your filter</font></b>
+</p>
+<p class="cfp">the render routine uses dynamically generated code so the speed depends on the kernel.</p>
+<p class="cfp">&nbsp;</p>
+<p class="cfp">*prefer zeroes to anything, anywhere.</p>
+<p class="cfp">*prefer 1s to any other number. this applies to all the entries except the bias.</p>
+<p class="cfp">*prefer powers of two to any other number except one. again this applies to all the entries except the bias.</p>
+<p class="cfp">*if your filter only uses two adjacent quardrants of the kernel (e.g. top left and top right), compare the speed of first applying whatever mirrors or rotations you need to instead enable to only use the bottom two quadrants, as if the only data entries are on or after the central value (reading across in rows like text) then it can use a slightly faster output routine.</p>
+<p class="cfp">*compare the speed of decomposing  large 2d blurs into one horizontal one and one vertical one.</p>
+<p class="cfp">*if you only have positive data entries then have the wraparound flag on, as this may be slightly faster and will make no difference to the output.</p>
+<p class="cfp">*note: if the sum of all the positive entries is greater than 256 or the sum of all the negative ones is less than 256 then clipping may occur.</p>
+</td>
+</tr>
+<tr>
+<td class="cfp" valign="bottom">
+&lt; <a href="filters.htm"><font color="#000000">previous</font></a> :: <a href="index.htm"><font color="#000000">contents</font></a> :: <a href="files.htm"><font color="#000000">next</font></a> &gt;</td>
+</tr>
+</table>
+</body>
+</html>

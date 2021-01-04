@@ -1,0 +1,26 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "convolution", "convolution.vcproj", "{B8E2C9AC-6D06-4E31-A4BB-040360DF3F3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B8E2C9AC-6D06-4E31-A4BB-040360DF3F3A}.Debug.ActiveCfg = Release|Win32
+		{B8E2C9AC-6D06-4E31-A4BB-040360DF3F3A}.Debug.Build.0 = Release|Win32
+		{B8E2C9AC-6D06-4E31-A4BB-040360DF3F3A}.Release.ActiveCfg = Release|Win32
+		{B8E2C9AC-6D06-4E31-A4BB-040360DF3F3A}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		Item:1 = prog.txt
+		Item:2 = registers.txt
+		Item:3 = stack.txt
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

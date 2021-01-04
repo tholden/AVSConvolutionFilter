@@ -1,0 +1,20 @@
+ESP		EBP		var
+		28		m64farray
+		24		fbout
+		20		framebuffer
+		16		return address
+		12		ebx
+		8		esi
+		4		edi
+		0		ebp
+.		.
+.		.
+.		.
+24				c[0]
+20				c[1]
+16				c[2]
+12				c[3]
+8				c[4]
+4				c[5]
+0				c[6]
+		

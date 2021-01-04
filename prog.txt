@@ -1,0 +1,39 @@
+below is the render function of the original, pre-optimised, version.
+only main change is the option to do a two-pass which first applies the filter normally, then applies the filter rotated through 90 degrees, then adds the two results.
+
+#define data(xx,yy) framebuffer[c[yy]+min(max(i+xx,0),lastcol)]
+#define scale(out) min(max((long)((out+farray[25])/farray[26]),0),255)
+int C_FILTER::render(char visdata[2][2][576], int isBeat, int *framebuffer, int *fbout, int w, int h)
+{
+	int c[5], k, l = 0;
+	int lastcol = w-1;
+	int lastrow = w*(h-1);
+	long outR, outG, outB, dta;
+	if (!enabled) return 0;
+	c[0]=0;c[1]=0;c[2]=0;c[3]=w;c[4]=2*w;
+	for(int j=0;j<h;j++)
+	{
+		for(int i=0;i<w;i++)
+		{
+			k = 0;
+			outR = 0;
+			outG = 0;
+			outB = 0;
+			for(int y=0;y<5;y++)
+			{
+				for(int x=-2;x<3;x++)
+				{
+					dta = data(x,y);
+					outR += farray[k]*R(dta);
+					outG += farray[k]*G(dta);
+					outB += farray[k]*B(dta);
+					k++;
+				}
+			}
+			fbout[l] = RGB(scale(outR),scale(outG),scale(outB));
+			l++;
+		}
+		c[0]=c[1];c[1]=c[2];c[2]=c[3];c[3]=c[4];c[4]+=w;c[4]=min(c[4],lastrow);
+	}
+	return 1;
+}
